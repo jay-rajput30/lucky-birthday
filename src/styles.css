@@ -56,3 +56,26 @@ button:active {
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #618897;
+  width: 100%;
+}
+.footer-list {
+  padding: 0.7rem;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-item: center;
+}
+.footer-list li {
+  margin: 0.5rem;
+  font-size: 1.2rem;
+}
+a {
+  color: #083a4e;
+  text-decoration: none;
+}

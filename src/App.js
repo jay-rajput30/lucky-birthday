@@ -86,20 +86,21 @@ export default function App() {
         <p className="result">{luckyBday}</p>
       </div>
       <footer>
-        <ul>
+        <ul className="footer-list">
           <li>
-            <a href="">
+            <a href="https://twitter.com/jay_r30">
               <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a href=""></a>
+            <a href="">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
           </li>
           <li>
-            <a href=""></a>
-          </li>
-          <li>
-            <a href=""></a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
           </li>
         </ul>
       </footer>
