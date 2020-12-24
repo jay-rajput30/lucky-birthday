@@ -93,12 +93,12 @@ export default function App() {
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="https://github.com/jay-rajput30">
               <i class="fa fa-github" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="https://in.linkedin.com/in/jay-rajput-23304bab">
               <i class="fa fa-linkedin" aria-hidden="true"></i>
             </a>
           </li>
