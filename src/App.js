@@ -3,10 +3,12 @@ import "./styles.css";
 
 export default function App() {
   let [bday, setBday] = useState("");
-  let [luckyNumber, setLuckyNumber] = useState(1);
+  let [luckyNumber, setLuckyNumber] = useState();
   let [luckyBday, setLuckyBday] = useState("");
+
   let inputLuckNum = 0;
   let sumOfBday = 0;
+
   function getSum(n) {
     let s = 0;
     for (let i = 0; n > 0; i++) {
@@ -22,7 +24,7 @@ export default function App() {
     let date = d.getDate();
     let year = d.getFullYear();
     sumOfBday = getSum(date) + getSum(month) + getSum(year);
-    setBday(`${d.getMonth()}/${d.getDate()}/${d.getFullYear()}`);
+    setBday(sumOfBday);
     console.log(sumOfBday);
   }
 
@@ -32,57 +34,75 @@ export default function App() {
   }
 
   function checkLucky() {
-    let s = sumOfBday % luckyNumber;
+    let s = bday % luckyNumber;
     if (s === 0) {
+      console.log(bday, luckyNumber, s);
       setLuckyBday("Your bday is lucky");
     } else {
       setLuckyBday("Your bday is not lucky");
     }
   }
-  // function checkLucky() {
-  //   if (sumOfBday % luckyNumber === 0) {
-  //     setLuckyBday("Your birthday is lucky");
-  //   }
 
-  //   setLuckyBday("Your birthday is not lucky");
-  // }
+  function reloadData() {
+    setBday("");
+    setLuckyBday("");
+    setLuckyNumber("");
+  }
 
   return (
-    <div
-      className="App"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <h1>Is your birthday lucky?</h1>
-      <div>
-        <label for="birthdate" id="bdayLabel">
-          Select your birthdate :{" "}
-        </label>
-        <input
-          type="date"
-          id="birthdate"
-          class="birthdate"
-          onChange={checkBday}
-        />
+    <div className="App" style={{}}>
+      <div className="container">
+        <h1>Is your birthday lucky?</h1>
+        <div>
+          <label for="birthdate" id="bdayLabel">
+            Select your birthdate :{" "}
+          </label>
+          <input
+            type="date"
+            id="birthdate"
+            className="birthdate"
+            onChange={checkBday}
+            // value={bday}
+          />
+        </div>
+        <div>
+          <label for="luckyNum" id="luckNumLabel">
+            Enter your lucky number :{" "}
+          </label>
+          <input
+            onChange={luckyNumChange}
+            // value={luckyNumber}
+            type="number"
+            id="luckyNum"
+          />
+        </div>
+        <button className="checkBtn" onClick={checkLucky}>
+          Am I lucky?
+        </button>
+        {/* <span className="reload" onClick={reloadData}>
+          🔄
+        </span> */}
+
+        <p className="result">{luckyBday}</p>
       </div>
-      <div>
-        <label for="luckyNum" id="luckNumLabel">
-          Enter your lucky number :{" "}
-        </label>
-        <input onChange={luckyNumChange} type="number" id="luckyNum" />
-      </div>
-      <button class="checkBtn" onClick={checkLucky}>
-        Check
-      </button>
-      <p>
-        The bday value you selected is {bday} and the lucky number you selected
-        is {luckyNumber}
-      </p>
-      <p>{luckyBday}</p>
+      <footer>
+        <ul>
+          <li>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href=""></a>
+          </li>
+          <li>
+            <a href=""></a>
+          </li>
+          <li>
+            <a href=""></a>
+          </li>
+        </ul>
+      </footer>
     </div>
   );
 }
