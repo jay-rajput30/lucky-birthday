@@ -32,11 +32,21 @@ export default function App() {
   }
 
   function checkLucky() {
-    if (sumOfBday % luckyNumber === 0) {
+    let s = sumOfBday % luckyNumber;
+    if (s === 0) {
+      setLuckyBday("Your bday is lucky");
+    } else {
+      setLuckyBday("Your bday is not lucky");
     }
-    setLuckyBday("Your birthday is lucky");
   }
-  setLuckyBday("Your birthday is not lucky");
+  // function checkLucky() {
+  //   if (sumOfBday % luckyNumber === 0) {
+  //     setLuckyBday("Your birthday is lucky");
+  //   }
+
+  //   setLuckyBday("Your birthday is not lucky");
+  // }
+
   return (
     <div
       className="App"
